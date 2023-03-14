@@ -4,6 +4,7 @@
 
 #include <stdio.h>
 #include "NexusC\Application.h"
+#include "NexusC\Log.h"
 
 // ---Entry Point---
 
