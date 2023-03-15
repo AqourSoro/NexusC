@@ -403,6 +403,5 @@ FodyWeavers.xsd
 *.vcxproj
 *.vcxproj.filters
 
-
-*.recipe
+*.dll.recipe
 *.idb
