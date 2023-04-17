@@ -17,6 +17,7 @@ namespace NexusC
 	//To be defined in CLIENT
 	Application* CreateApplication();
 
+
 }
 
 
