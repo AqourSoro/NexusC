@@ -7,7 +7,7 @@
 namespace NexusC
 
 {
-	class MouseMovedEvent : public Event
+	class NEXUSC_API MouseMovedEvent : public Event
 	{
 	public:
 		MouseMovedEvent(float x, float y)
@@ -30,7 +30,7 @@ namespace NexusC
 		float m_MouseX, m_MouseY;
 	};
 
-	class MouseScrolledEvent : public Event
+	class NEXUSC_API MouseScrolledEvent : public Event
 	{
 	public:
 		MouseScrolledEvent(const float xOffset, const float yOffset)
@@ -40,6 +40,7 @@ namespace NexusC
 		float GetYOffset() const { return m_YOffset;  }
 
 		std::string ToString() const override
+
 		{
 			std::stringstream ss;
 			ss << "MouseScrolledEvent: " << GetXOffset() << ", " << GetYOffset();
@@ -53,5 +54,59 @@ namespace NexusC
 	private:
 		float m_XOffset, m_YOffset;
 	};
+
+
+	class NEXUSC_API MouseButtonEvent : public Event
+	{
+	public:
+		inline int GetMouseButton() const { return m_Button; }
+
+		EVENT_CLASS_CATEGORY(EventCategoryMouse | EventCategoryInput)
+
+	protected: // cannot been created by MouseButtonEvent, only by its child classes, such as MouseButtonPressedEvent.
+		MouseButtonEvent(int button)
+			: m_Button(button) {}
+
+		int m_Button;
+
+		
+	};
+
+
+	class NEXUSC_API MouseButtonPressedEvent : MouseButtonEvent
+	{
+	public:
+		MouseButtonPressedEvent(int button)
+			: MouseButtonEvent(button) {}
+
+		std::string ToString() const override
+		{
+			std::stringstream ss;
+
+			ss << "MouseButtonPressedEvent: " << m_Button;
+			return ss.str();
+		}
+
+		EVENT_CLASS_TYPE(MouseButtonPressed)
+
+	};
+
+	class NEXUSC_API MouseButtonReleasedEvent : MouseButtonEvent
+	{
+	public:
+		MouseButtonReleasedEvent(int button)
+			: MouseButtonEvent(button) {}
+
+		std::string ToString() const override
+		{
+			std::stringstream ss;
+
+			ss << "MouseButtonReleasedEvent: " << m_Button;
+			return ss.str();
+		}
+
+		EVENT_CLASS_TYPE(MouseButtonReleased)
+	};
+
 
 }
