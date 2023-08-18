@@ -1,3 +1,6 @@
 [submodule "NexusC/vendor/spdlog"]
 	path = NexusC/vendor/spdlog
 	url = https://github.com/gabime/spdlog
+[submodule "glfw"]
+	path = glfw
+	url = https://github.com/AqourSoro/glfw
