@@ -2,9 +2,9 @@
 
 #include "Event.h"
 
-#include <sstream>
+//#include <sstream>
 
-namespace NexusC
+namespace nexus_c
 {
 	class KeyEvent : public Event
 	{

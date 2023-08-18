@@ -1,6 +1,6 @@
 #pragma once
 
-//For use of NexusC applications
+//For use of nexus_c applications
 
 #include <stdio.h>
 #include "NexusC\Application.h"

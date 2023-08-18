@@ -1,8 +1,9 @@
 #pragma once
 
 #include "Core.h"
+#include "Events/Event.h"
 
-namespace NexusC
+namespace nexus_c
 {
 	class NEXUSC_API Application
 	{

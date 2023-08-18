@@ -2,12 +2,12 @@
 
 #include "Event.h"
 
-#include <sstream>
+//#include <sstream>
 
-namespace NexusC
+namespace nexus_c
 
 {
-	class NEXUSC_API MouseMovedEvent : public Event
+	class MouseMovedEvent : public Event
 	{
 	public:
 		MouseMovedEvent(float x, float y)
@@ -30,7 +30,7 @@ namespace NexusC
 		float m_MouseX, m_MouseY;
 	};
 
-	class NEXUSC_API MouseScrolledEvent : public Event
+	class MouseScrolledEvent : public Event
 	{
 	public:
 		MouseScrolledEvent(const float xOffset, const float yOffset)
@@ -56,7 +56,7 @@ namespace NexusC
 	};
 
 
-	class NEXUSC_API MouseButtonEvent : public Event
+	class MouseButtonEvent : public Event
 	{
 	public:
 		inline int GetMouseButton() const { return m_Button; }
@@ -73,7 +73,7 @@ namespace NexusC
 	};
 
 
-	class NEXUSC_API MouseButtonPressedEvent : MouseButtonEvent
+	class MouseButtonPressedEvent : MouseButtonEvent
 	{
 	public:
 		MouseButtonPressedEvent(int button)
@@ -91,7 +91,7 @@ namespace NexusC
 
 	};
 
-	class NEXUSC_API MouseButtonReleasedEvent : MouseButtonEvent
+	class MouseButtonReleasedEvent : MouseButtonEvent
 	{
 	public:
 		MouseButtonReleasedEvent(int button)

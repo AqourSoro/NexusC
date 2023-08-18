@@ -1,20 +1,17 @@
 #pragma once
 
-#include "../Core.h"
+#include "NexusC/Core.h"
 
-#include <string>
-#include <functional>
-
-namespace NexusC
+namespace nexus_c
 {
-	// Events in NexusC are currently blocking, meaning when an event occurs it
+	// Events in nexus_c are currently blocking, meaning when an event occurs it
 	// immediately gets dispatched and must be dealt with right then an there.
 	// For the future, a better strategy might be to buffer events in an event
 	// bus and process them during the "event" part of the update stage.
 
 	enum class EventType
 	{
-		None = 0;
+		None = 0,
 		WindowClose, WindowResize, WindowFocus, WindowLostFocus, WindowMoved,
 		AppTick, AppUpdate, AppRender,
 		KeyPressed, KeyReleased,
@@ -23,7 +20,7 @@ namespace NexusC
 
 	enum EventCategory
 	{
-		None = 0;
+		None = 0,
 		EventCategoryApplication = BIT(0),
 		EventCategoryInput       = BIT(1),
 		EventCategoryKeyboard    = BIT(2),

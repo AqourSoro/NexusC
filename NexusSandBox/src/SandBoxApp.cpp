@@ -1,7 +1,8 @@
+#include "nxpch.h"
 #include <NexusC.h>
 
 
-class SandBox : public NexusC::Application
+class SandBox : public nexus_c::Application
 {
 
 public:
@@ -19,7 +20,7 @@ public:
 
 
 
-NexusC::Application* NexusC::CreateApplication()
+nexus_c::Application* nexus_c::CreateApplication()
 {
 	return new SandBox();
 }
