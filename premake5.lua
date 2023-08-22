@@ -10,6 +10,12 @@ workspace "NexusC"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+--Include directories to root folder(solution directory)
+IncludeDir = {}
+IncludeDir["GLFW"] = "NexusC/vendor/GLFW/include"
+
+include "NexusC/vendor/GLFW"
+
 project "NexusC"
 	location "NexusC"
 	kind "SharedLib"
@@ -30,8 +36,16 @@ project "NexusC"
 	includedirs
 	{
 		"%{prj.name}/src",
-		"%{prj.name}/vendor/spdlog/include"
+		"%{prj.name}/vendor/spdlog/include",
+		"%{IncludeDir.GLFW}"
 	}
+
+	links
+	{
+		"GLFW",
+		"vulkan.lib"
+	}
+
 
 	filter "system:windows"
 		cppdialect "C++17"
