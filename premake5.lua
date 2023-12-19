@@ -12,7 +12,7 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 --Include directories to root folder(solution directory)
 IncludeDir = {}
-IncludeDir["GLFW"] = "NexusC/vendor/GLFW/include"
+IncludeDir["GLFW"] = "./NexusC/vendor/GLFW/include"
 
 include "NexusC/vendor/GLFW"
 
@@ -42,8 +42,7 @@ project "NexusC"
 
 	links
 	{
-		"GLFW",
-		"vulkan.lib"
+		"GLFW"
 	}
 
 
