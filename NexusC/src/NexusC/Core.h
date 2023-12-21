@@ -13,6 +13,7 @@
 
 #endif // NX_PLATFORM_WINDOWS
 
+// checks if need breakpoint in debug mode
 #ifdef NX_ENABLE_ASSERTS
 
 	#define NX_ASSERT(x, ...) {if(!(x)) {NX_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }

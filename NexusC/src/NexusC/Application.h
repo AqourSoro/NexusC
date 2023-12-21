@@ -2,6 +2,7 @@
 
 #include "Core.h"
 #include "Events/Event.h"
+#include "Window.h"
 
 namespace nexus_c
 {
@@ -13,6 +14,9 @@ namespace nexus_c
 
 		void run();
 
+	private:
+		std::unique_ptr<Window> m_Window;
+		bool m_Running = true;
 	};
 
 	//To be defined in CLIENT

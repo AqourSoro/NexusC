@@ -17,6 +17,9 @@ IncludeDir["GLFW"] = "./NexusC/vendor/GLFW/include"
 include "NexusC/vendor/GLFW"
 
 project "NexusC"
+
+
+	staticruntime "on"
 	location "NexusC"
 	kind "SharedLib"
 	language "C++"
@@ -76,6 +79,7 @@ project "NexusC"
 
 
 project "NexusSandbox"
+	staticruntime "on"
 	location "NexusSandbox"
 	kind "ConsoleApp"
 	language "C++"
