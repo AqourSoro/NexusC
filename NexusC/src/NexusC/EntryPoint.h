@@ -6,7 +6,7 @@ extern nexus_c::Application* nexus_c::CreateApplication();
 
 int main(int argc, char** argv)
 {
-	printf("nexus_c Engine starts running!\n");
+	printf("NexusC Engine starts running!\n");
 
 	nexus_c::Log::Init();
 	NX_CORE_WARN("Hikari wa kizuna da!");
