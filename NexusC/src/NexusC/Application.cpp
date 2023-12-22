@@ -22,6 +22,7 @@ namespace nexus_c
 
 	void Application::OnEvent(Event& e)
 	{
+		// Debug purpose
 		NX_CORE_INFO("{0}",e);
 	}
 

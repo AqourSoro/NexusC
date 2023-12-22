@@ -61,7 +61,7 @@ namespace nexus_c
 	public:
 		inline int GetMouseButton() const { return m_Button; }
 
-		EVENT_CLASS_CATEGORY(EventCategoryMouse | EventCategoryInput)
+		EVENT_CLASS_CATEGORY(EventCategoryMouse | EventCategoryInput | EventCategoryMouseButton)
 
 	protected: // cannot been created by MouseButtonEvent, only by its child classes, such as MouseButtonPressedEvent.
 		MouseButtonEvent(int button)
@@ -73,7 +73,7 @@ namespace nexus_c
 	};
 
 
-	class MouseButtonPressedEvent : MouseButtonEvent
+	class MouseButtonPressedEvent : public MouseButtonEvent
 	{
 	public:
 		MouseButtonPressedEvent(int button)
@@ -91,7 +91,7 @@ namespace nexus_c
 
 	};
 
-	class MouseButtonReleasedEvent : MouseButtonEvent
+	class MouseButtonReleasedEvent : public MouseButtonEvent
 	{
 	public:
 		MouseButtonReleasedEvent(int button)
