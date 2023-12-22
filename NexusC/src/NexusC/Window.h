@@ -13,7 +13,7 @@ namespace  nexus_c
 		unsigned int Width;
 		unsigned int Height;
 
-		WindowProps(const std::string& title = "NexusC Engine",
+		WindowProps(const std::string& title = "Nexus Engine",
 					unsigned int width = 1920,
 					unsigned int height = 1080)
 						:Title(title), Width(width), Height(height)

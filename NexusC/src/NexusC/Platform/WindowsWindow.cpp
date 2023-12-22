@@ -3,6 +3,9 @@
 #include "NexusC/Platform/WindowsWindow.h"
 
 #include "NexusC/Log.h"
+#include "NexusC/Events/ApplicationEvent.h"
+#include "NexusC/Events/KeyEvent.h"
+#include "NexusC/Events/MouseEvent.h"
 
 namespace nexus_c
 {
@@ -47,6 +50,26 @@ namespace nexus_c
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		SetVSync(true);
 
+		// Set GLFW callbacks
+		glfwSetWindowSizeCallback(m_Window, [](GLFWwindow* window, int width, int height)
+		{
+
+			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+			data.Width = width;
+			data.Height = height;
+
+			WindowResizeEvent event(width, height);
+			data.EventCallback(event);
+
+		});
+
+		glfwSetWindowCloseCallback(m_Window, [](GLFWwindow* window)
+		{
+			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+			WindowCloseEvent event;
+			data.EventCallback(event);
+
+		});
 
 	}
 
