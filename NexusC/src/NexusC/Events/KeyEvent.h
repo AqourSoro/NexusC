@@ -15,7 +15,7 @@ namespace nexus_c
 
 	protected:
 		KeyEvent(int keycode)
-			:m_KeyCode;
+			:m_KeyCode(keycode) {}
 		int m_KeyCode;
 	};
 
