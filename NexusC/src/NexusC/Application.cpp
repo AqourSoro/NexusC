@@ -2,7 +2,6 @@
 #include "Application.h"
 
 #include "Log.h"
-#include  "Events/ApplicationEvent.h"
 
 namespace nexus_c
 {
@@ -24,35 +23,27 @@ namespace nexus_c
 	{
 		// Debug purpose
 		NX_CORE_INFO("{0}",e);
+
+		EventDispatcher dispatcher(e);
+		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowsClose));
+
 	}
 
 
 	void Application::run()
 	{
 
-		/*
-
-		WindowResizeEvent e(1920, 1080);
-		if (e.IsInCategory(EventCategoryApplication))
-		{
-			NX_TRACE(e);
-		}
-		if(e.IsInCategory(EventCategoryInput))
-		{
-			NX_TRACE(e);
-		}
-		
-		while (true);
-
-		*/
-
 		while (m_Running)
 		{
 			m_Window->OnUpdate();
 		}
 
+	}
 
-		
+	bool Application::OnWindowsClose(WindowCloseEvent& e)
+	{
+		m_Running = false;
+		return true;
 	}
 
 }
