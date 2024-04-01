@@ -27,6 +27,23 @@ namespace nexus_c
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowsClose));
 
+		for (auto it = m_LayerSatck.rbegin(); it != m_LayerSatck.rend(); ++it)
+		{
+			if (e.Handled)
+				break;
+			(*it)->OnEvent(e);
+		}
+
+	}
+
+	void Application::PushLayer(Layer* layer)
+	{
+		m_LayerSatck.PushLayer(layer);
+	}
+
+	void Application::PushOverlay(Layer* overlay)
+	{
+		m_LayerSatck.PushOverlay(overlay);
 	}
 
 
@@ -36,6 +53,10 @@ namespace nexus_c
 		while (m_Running)
 		{
 			m_Window->OnUpdate();
+
+			for (Layer* layer : m_LayerSatck)
+				layer->OnUpdate();
+
 		}
 
 	}

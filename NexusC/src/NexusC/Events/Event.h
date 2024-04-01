@@ -1,6 +1,8 @@
 #pragma once
 
 #include "NexusC/Core.h"
+//#include <string>
+//#include <sstream>
 
 namespace nexus_c
 {
@@ -36,10 +38,13 @@ namespace nexus_c
 
 	#define EVENT_CLASS_CATEGORY(category) virtual int GetCategoryFlags() const override { return category; }
 
-	class NEXUSC_API Event
+	class Event
 	{
 		friend class EventDispatcher;
 	public:
+		virtual ~Event() = default;
+		bool Handled = false;
+
 		virtual EventType GetEventType() const = 0;
 		virtual const char* GetName() const = 0;
 		virtual int GetCategoryFlags() const = 0;
@@ -49,9 +54,6 @@ namespace nexus_c
 		{
 			return GetCategoryFlags() & category;
 		}
-
-	protected:
-		bool m_Handled = false;
 
 	};
 
@@ -70,7 +72,7 @@ namespace nexus_c
 		{
 			if (m_Event.GetEventType() == T::GetStaticType())
 			{
-				m_Event.m_Handled |= func(static_cast<T&>(m_Event));
+				m_Event.Handled |= func(static_cast<T&>(m_Event));
 				return true;
 			}
 			return false;
