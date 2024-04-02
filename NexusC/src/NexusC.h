@@ -6,9 +6,3 @@
 #include "NexusC/Application.h"
 #include "NexusC/Log.h"
 #include "NexusC/Layer.h"
-
-// ---Entry Point---
-
-#include "NexusC/EntryPoint.h"
- 
-// -----------------

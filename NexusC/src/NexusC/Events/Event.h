@@ -1,8 +1,8 @@
 #pragma once
 
 #include "NexusC/Core.h"
-//#include <string>
-//#include <sstream>
+#include <string>
+#include <sstream>
 
 namespace nexus_c
 {

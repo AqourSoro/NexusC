@@ -5,7 +5,7 @@
 
 namespace nexus_c
 {
-	class Layer
+	class NEXUSC_API Layer
 	{
 	public:
 		Layer(const std::string& name = "Layer");
