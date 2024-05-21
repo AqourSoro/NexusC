@@ -8,8 +8,8 @@ public:
 	ExampleLayer();
 	virtual ~ExampleLayer() = default;
 
-	// virtual void OnAttach() override;
-	// virtual void OnDetach() override;
+	 virtual void OnAttach() override;
+	 virtual void OnDetach() override;
 
 	void OnUpdate() override;
 	void OnEvent(nexus_c::Event& event) override;

@@ -6,7 +6,7 @@
 
 namespace nexus_c
 {
-	// Events in nexus_c are currently blocking, meaning when an event occurs it
+	// Events in NexusC are currently blocking, meaning when an event occurs it
 	// immediately gets dispatched and must be dealt with right then an there.
 	// For the future, a better strategy might be to buffer events in an event
 	// bus and process them during the "event" part of the update stage.
@@ -16,7 +16,7 @@ namespace nexus_c
 		None = 0,
 		WindowClose, WindowResize, WindowFocus, WindowLostFocus, WindowMoved,
 		AppTick, AppUpdate, AppRender,
-		KeyPressed, KeyReleased,
+		KeyPressed, KeyReleased, KeyTyped,
 		MouseButtonPressed, MouseButtonReleased, MouseMoved, MouseScrolled
 	};
 
@@ -24,12 +24,10 @@ namespace nexus_c
 	{
 		None = 0,
 		EventCategoryApplication = BIT(0),
-		EventCategoryInput       = BIT(1),
-		EventCategoryKeyboard    = BIT(2),
-		EventCategoryMouse       = BIT(3),
+		EventCategoryInput =       BIT(1),
+		EventCategoryKeyboard =	   BIT(2),
+		EventCategoryMouse =	   BIT(3),
 		EventCategoryMouseButton = BIT(4)
-
-
 	};
 
 	#define EVENT_CLASS_TYPE(type) static EventType GetStaticType() { return EventType::type; }\
@@ -40,9 +38,9 @@ namespace nexus_c
 
 	class Event
 	{
-		friend class EventDispatcher;
 	public:
 		virtual ~Event() = default;
+
 		bool Handled = false;
 
 		virtual EventType GetEventType() const = 0;
@@ -50,23 +48,21 @@ namespace nexus_c
 		virtual int GetCategoryFlags() const = 0;
 		virtual std::string ToString() const { return GetName(); }
 
-		inline bool IsInCategory(EventCategory category)
+		bool IsInCategory(EventCategory category)
 		{
 			return GetCategoryFlags() & category;
 		}
-
 	};
 
-	class  EventDispatcher
+	class EventDispatcher
 	{
-
 	public:
 		EventDispatcher(Event& event)
-			:m_Event(event)
+			: m_Event(event)
 		{
-
 		}
 
+		// F will be deduced by the compiler
 		template<typename T, typename F>
 		bool Dispatch(const F& func)
 		{
@@ -77,17 +73,14 @@ namespace nexus_c
 			}
 			return false;
 		}
-		
-
 	private:
 		Event& m_Event;
-
-	
 	};
 
 	inline std::ostream& operator<<(std::ostream& os, const Event& e)
 	{
 		return os << e.ToString();
 	}
+
 
 }

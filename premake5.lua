@@ -13,8 +13,10 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 --Include directories to root folder(solution directory)
 IncludeDir = {}
 IncludeDir["GLFW"] = "./NexusC/vendor/GLFW/include"
+IncludeDir["Glad"] = "./NexusC/vendor/Glad/include"
 
 include "NexusC/vendor/GLFW"
+include "NexusC/vendor/Glad"
 
 project "NexusC"
 
@@ -40,12 +42,15 @@ project "NexusC"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}"
 	}
 
 	links
 	{
-		"GLFW"
+		"GLFW",
+		"Glad",
+		"opengl32.lib"
 	}
 
 
@@ -58,6 +63,7 @@ project "NexusC"
 		{
 			"NC_PLATFORM_WINDOWS",
 			"NC_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands
@@ -67,14 +73,17 @@ project "NexusC"
 
 	filter "configurations:Debug"
 		defines "NX_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "NX_RELEASE"
+		buildoptions "/MD"
 		symbols "On"
 
 	filter "configurations:Dist"
 		defines "NX_DIST"
+		buildoptions "/MD"
 		symbols "On"
 
 
@@ -116,12 +125,15 @@ project "NexusSandbox"
 
 	filter "configurations:Debug"
 		defines "NX_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "NX_RELEASE"
+		buildoptions "/MD"
 		symbols "On"
 
 	filter "configurations:Dist"
 		defines "NX_DIST"
+		buildoptions "/MD"
 		symbols "On"

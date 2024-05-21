@@ -12,8 +12,20 @@ void ExampleLayer::OnUpdate()
 
 }
 
+void ExampleLayer::OnAttach()
+{
+	
+}
+
+void ExampleLayer::OnDetach()
+{
+	
+}
+
+
 void ExampleLayer::OnEvent(nexus_c::Event& event)
 {
-	//NX_TRACE("{0}", event);
+	NX_TRACE("{0}", event);
+
 }
 

@@ -7,6 +7,8 @@
 #include "NexusC/Events/KeyEvent.h"
 #include "NexusC/Events/MouseEvent.h"
 
+#include <glad/glad.h>
+
 namespace nexus_c
 {
 	static bool s_GLFWInitialized = false;
@@ -54,6 +56,8 @@ namespace nexus_c
 
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
 		glfwMakeContextCurrent(m_Window);
+		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+		NX_CORE_ASSERT(status, "Failed to initialize GLad!")
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		SetVSync(true);
 

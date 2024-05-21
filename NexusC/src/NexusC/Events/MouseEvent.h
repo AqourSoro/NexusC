@@ -2,7 +2,6 @@
 
 #include "Event.h"
 
-//#include <sstream>
 
 namespace nexus_c
 
@@ -10,7 +9,7 @@ namespace nexus_c
 	class MouseMovedEvent : public Event
 	{
 	public:
-		MouseMovedEvent(float x, float y)
+		MouseMovedEvent(const float x, const float y)
 			: m_MouseX(x), m_MouseY(y) {}
 
 		inline float GetX() const { return m_MouseX;  }
@@ -76,7 +75,7 @@ namespace nexus_c
 	class MouseButtonPressedEvent : public MouseButtonEvent
 	{
 	public:
-		MouseButtonPressedEvent(int button)
+		MouseButtonPressedEvent(const int button)
 			: MouseButtonEvent(button) {}
 
 		std::string ToString() const override
