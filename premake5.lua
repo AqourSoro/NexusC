@@ -14,9 +14,11 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 IncludeDir = {}
 IncludeDir["GLFW"] = "./NexusC/vendor/GLFW/include"
 IncludeDir["Glad"] = "./NexusC/vendor/Glad/include"
+IncludeDir["ImGui"] = "./NexusC/vendor/imgui/include"
 
 include "NexusC/vendor/GLFW"
 include "NexusC/vendor/Glad"
+include "NexusC/vendor/imgui"
 
 project "NexusC"
 
@@ -43,13 +45,15 @@ project "NexusC"
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
 		"%{IncludeDir.GLFW}",
-		"%{IncludeDir.Glad}"
+		"%{IncludeDir.Glad}",
+		"%{IncludeDir.ImGui}"
 	}
 
 	links
 	{
 		"GLFW",
 		"Glad",
+		"ImGui",
 		"opengl32.lib"
 	}
 

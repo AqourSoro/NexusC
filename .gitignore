@@ -404,3 +404,4 @@ FodyWeavers.xsd
 *.vcxproj.filters
 
 bin-int/
+.idea/.idea.NexusC/.idea/encodings.xml

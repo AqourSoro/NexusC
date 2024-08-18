@@ -4,3 +4,6 @@
 [submodule "NexusC/vendor/GLFW"]
 	path = NexusC/vendor/GLFW
 	url = https://github.com/AqourSoro/glfw
+[submodule "NexusC/vendor/imgui"]
+	path = NexusC/vendor/imgui
+	url = https://github.com/AqourSoro/imgui.git
