@@ -15,6 +15,16 @@ namespace nexus_c
 
 	}
 
+	void ImGuiLayer::OnAttach()
+	{
+		
+	}
+
+	void ImGuiLayer::OnDetach()
+	{
+		
+	}
+	
 	void ImGuiLayer::OnUpdate()
 	{
 
@@ -24,4 +34,7 @@ namespace nexus_c
 	{
 
 	}
+
+	
+	
 }

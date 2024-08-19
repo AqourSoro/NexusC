@@ -11,8 +11,10 @@ namespace nexus_c
 		ImGuiLayer();
 		~ImGuiLayer();
 
+		void OnAttach();
+		void OnDetach();
 		void OnUpdate();
-		void OnEvent(Event& event) {}
+		void OnEvent(Event& event);
 
 	private:
 
