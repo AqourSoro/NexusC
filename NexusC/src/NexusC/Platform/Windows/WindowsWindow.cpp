@@ -1,6 +1,6 @@
 #include "nxpch.h"
 
-#include "NexusC/Platform/WindowsWindow.h"
+#include "NexusC/Platform/Windows/WindowsWindow.h"
 
 #include "NexusC/Log.h"
 #include "NexusC/Events/ApplicationEvent.h"
