@@ -14,7 +14,7 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 IncludeDir = {}
 IncludeDir["GLFW"] = "./NexusC/vendor/GLFW/include"
 IncludeDir["Glad"] = "./NexusC/vendor/Glad/include"
-IncludeDir["ImGui"] = "./NexusC/vendor/imgui/include"
+IncludeDir["ImGui"] = "./NexusC/vendor/imgui"
 
 include "NexusC/vendor/GLFW"
 include "NexusC/vendor/Glad"
