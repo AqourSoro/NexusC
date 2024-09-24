@@ -1,7 +1,6 @@
 #include "nxpch.h"
 #include <NexusC.h>
-
-#include "NexusC/EntryPoint.h"
+#include <NexusC/EntryPoint.h>
 
 #include "ExampleLayer.h"
 
@@ -12,6 +11,7 @@ public:
 	SandBox()
 	{
 		PushLayer(new ExampleLayer());
+		PushLayer(new nexus_c::ImGuiLayer());
 	}
 
 	~SandBox()

@@ -21,6 +21,8 @@ namespace nexus_c
 		void PushLayer(Layer* layer);
 		void PushOverlay(Layer* layer);
 
+		inline Window& GetWindow() { return *m_Window; }
+		inline static Application& Get() { return *s_Instance; }
 	private:
 		bool Application::OnWindowsClose(WindowCloseEvent& e);
 
@@ -28,6 +30,9 @@ namespace nexus_c
 		bool m_Running = true;
 
 		LayerStack m_LayerSatck;
+
+	private:
+		static Application* s_Instance;
 	};
 
 	//To be defined in CLIENT
