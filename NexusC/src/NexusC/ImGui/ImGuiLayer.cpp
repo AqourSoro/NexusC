@@ -109,7 +109,7 @@ namespace nexus_c
 	bool ImGuiLayer::OnMouseButtonReleasedEvent(MouseButtonReleasedEvent& e)
 	{
 		ImGuiIO& io = ImGui::GetIO();
-		io.MouseDown[e.GetMouseButton()] = true;
+		io.MouseDown[e.GetMouseButton()] = false;
 
 		return false;
 
@@ -118,7 +118,7 @@ namespace nexus_c
 	bool ImGuiLayer::OnMouseMovedEvent(MouseMovedEvent& e)
 	{
 		ImGuiIO& io = ImGui::GetIO();
-		io.MousePos = ImVec2(e.GetX(), e.GetY());
+		io.AddMousePosEvent(e.GetX(), e.GetY());
 		return false;
 	}
 
