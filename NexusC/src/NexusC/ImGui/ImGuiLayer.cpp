@@ -101,7 +101,8 @@ namespace nexus_c
 	bool ImGuiLayer::OnMouseButtonPressedEvent(MouseButtonPressedEvent& e)
 	{
 		ImGuiIO& io = ImGui::GetIO();
-		io.MouseDown[e.GetMouseButton()] = true;
+		//io.MouseDown[e.GetMouseButton()] = true;
+		io.AddMouseButtonEvent(e.GetMouseButton(), true);
 
 		return false;
 	}
@@ -109,7 +110,8 @@ namespace nexus_c
 	bool ImGuiLayer::OnMouseButtonReleasedEvent(MouseButtonReleasedEvent& e)
 	{
 		ImGuiIO& io = ImGui::GetIO();
-		io.MouseDown[e.GetMouseButton()] = false;
+		//io.MouseDown[e.GetMouseButton()] = false;
+		io.AddMouseButtonEvent(e.GetMouseButton(), false);
 
 		return false;
 
@@ -125,8 +127,9 @@ namespace nexus_c
 	bool ImGuiLayer::OnMouseScrolledEvent(MouseScrolledEvent& e)
 	{
 		ImGuiIO& io = ImGui::GetIO();
-		io.MouseWheelH += e.GetXOffset();
-		io.MouseWheel += e.GetYOffset();
+		//io.MouseWheelH += e.GetXOffset();
+		//io.MouseWheel += e.GetYOffset();
+		io.AddMouseWheelEvent(e.GetXOffset(), e.GetYOffset());
 
 		return false;
 	}
