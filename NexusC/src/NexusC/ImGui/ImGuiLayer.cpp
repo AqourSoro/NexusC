@@ -2,7 +2,7 @@
 #include "ImGuiLayer.h"
 
 #include "imgui.h"
-#include "NexusC\Platform\OpenGL\ImGuiOpenGLRenderer.h"
+#include "Platform\OpenGL\ImGuiOpenGLRenderer.h"
 
 
 #include "NexusC\Application.h"
