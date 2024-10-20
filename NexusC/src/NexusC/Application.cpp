@@ -67,7 +67,7 @@ namespace nexus_c
 
 			for (Layer* layer : m_LayerSatck)
 				layer->OnUpdate();
-
+			
 		}
 
 	}
